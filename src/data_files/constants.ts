@@ -17,6 +17,25 @@ export const OG = {
   image: ogImageSrc,
 };
 
+/**
+ * 中国大陆网站备案信息（按法规要求在页脚展示）。
+ *
+ * 如果更换域名或备案主体，只需更新这里的号码与官方查询地址，
+ * 页脚会自动同步（渲染逻辑见 FooterSection.astro）。
+ */
+export const FILINGS = {
+  /** ICP 备案：链接指向工信部备案系统查询页。 */
+  icp: {
+    number: '苏ICP备2025230436号-1',
+    url: 'https://beian.miit.gov.cn/',
+  },
+  /** 公安联网备案：链接中的 code 为备案号中的数字部分。 */
+  police: {
+    number: '苏公网安备32100302010890号',
+    url: 'https://beian.mps.gov.cn/#/query/webSearch?code=32100302010890',
+  },
+};
+
 export const partnersData = [
   {
     icon: `<svg
