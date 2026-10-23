@@ -1,5 +1,7 @@
 # ScrewFast domain glossary
 
+[English](CONTEXT.md) | [简体中文](CONTEXT.zh-CN.md)
+
 Names for the concepts this codebase is built around. Use these terms in code, docs and reviews.
 
 ## Marketing site

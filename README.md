@@ -1,5 +1,7 @@
 # ScrewFast
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 ![ScrewFast landing page](https://github.com/mearashadowfax/ScrewFast/assets/125820963/cdf299bd-414a-4a2d-baf0-d188bb4709c7)
 
 ScrewFast is an open-source website template built with [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/). You get a landing page, blog, product pages, and a full documentation site in one repo, so you can launch a complete web presence by editing content and props instead of building pages from scratch. Unlike single-purpose landing or blog themes, it ships with SEO metadata, i18n, security headers, and CI already wired up.
@@ -62,6 +64,17 @@ import HeroSection from '@components/sections/landing/HeroSection.astro';
   - [Formatting](#formatting)
 - [Contributing](#contributing)
 - [License](#license)
+
+---
+
+## 中文文档
+
+- [README 中文版](README.zh-CN.md) —— 本文件的简体中文翻译
+- [改造指南：把 ScrewFast 变成你自己的博客](docs/customization.md) —— 从站点身份、品牌视觉到部署上线的完整改造步骤
+- [开发与维护帮助文档](docs/development.md) —— 架构、约定、常见任务与故障排查
+- [AI 指南（中文）](AI_GUIDE.zh-CN.md) —— 给 AI 编程助手的项目结构与约定说明
+- [领域术语表（中文）](CONTEXT.zh-CN.md) —— 代码库核心概念的命名与含义
+- [行为准则（中文）](CODE_OF_CONDUCT.zh-CN.md) —— 社区行为规范
 
 ---
 
@@ -320,7 +333,7 @@ Prettier with `prettier-plugin-astro` and `prettier-plugin-tailwindcss` (class s
 - **Bugs and ideas:** open an [issue](https://github.com/mearashadowfax/ScrewFast/issues) or start a [discussion](https://github.com/mearashadowfax/ScrewFast/discussions/new/choose).
 - **Pull requests:** welcome. Run `pnpm format:fix` and `pnpm build` before submitting.
 
-See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) ([简体中文](CODE_OF_CONDUCT.zh-CN.md)).
 
 ## License
 

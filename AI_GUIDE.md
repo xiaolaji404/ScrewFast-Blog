@@ -1,5 +1,7 @@
 # ScrewFast AI Guide
 
+[English](AI_GUIDE.md) | [简体中文](AI_GUIDE.zh-CN.md)
+
 For AI assistants (Cursor, Copilot, Claude, ChatGPT): this file describes project structure, conventions, and where to find or add code. See [README.md](README.md) for human-facing setup and features, and [CONTEXT.md](CONTEXT.md) for the names of the main modules.
 
 ## Project Overview
