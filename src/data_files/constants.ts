@@ -1,14 +1,14 @@
 import ogImageSrc from '@images/social.png';
 
 export const SITE = {
-  title: 'ScrewFast',
-  tagline: 'Top-quality Hardware Tools',
+  title: '星陨的博客',
+  tagline: '写一些我想写的东西',
   description:
-    'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.',
+    '写一些我想写的东西，你可能会找到关于编程、云原生、飞行、文学等随机内容。',
   description_short:
-    'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.',
-  url: 'https://screwfast.uk',
-  author: 'Emil Gulamov',
+    '随便一点，想写点啥就写点啥吧！',
+  url: 'https://xiaolaji.site',
+  author: '星陨',
 };
 
 // Per-locale titles, descriptions and Open Graph text live in `src/copy/`;

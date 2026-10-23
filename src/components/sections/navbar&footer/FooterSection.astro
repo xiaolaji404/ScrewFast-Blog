@@ -20,7 +20,7 @@ const socialIconClass =
     <div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
       <div class="col-span-full lg:col-span-1">
         {/* Brand Logo */}
-        <BrandLogo class="h-auto w-32" />
+        <BrandLogo />
       </div>
       {/* Link sections from the copy table (Ecosystem, Company, …) */}
       {footerSections.map(section => (
@@ -67,17 +67,7 @@ const socialIconClass =
         <p class="text-sm text-neutral-600 dark:text-neutral-400">
           © <span id="current-year"></span>
           {` `}
-          {SITE.title}. {footer.craftedBy}
-          {` `}
-          <a
-            class="rounded-lg font-medium underline underline-offset-2 ring-zinc-500 outline-hidden transition duration-300 hover:text-neutral-700 hover:decoration-dashed focus:outline-hidden focus-visible:ring-3 dark:ring-zinc-200 dark:hover:text-neutral-300"
-            href="https://www.gulamoff.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            gulamoff
-          </a>
-          .
+          {SITE.title}。{footer.craftedBy}
         </p>
       </div>
 

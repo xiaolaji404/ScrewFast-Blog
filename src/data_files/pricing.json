@@ -1,38 +1,33 @@
 {
-  "title": "Simple, Transparent Pricing",
-  "subTitle": "Boost efficiency with ScrewFast's clear, value-driven plans.",
-  "badge": "Best value",
-  "thirdOption": "Enterprise Solutions?",
-  "btnText": "Get a Custom Quote",
+  "title": "简单透明的支持方式",
+  "subTitle": "如果这里的内容对你有帮助，欢迎请我喝杯咖啡。",
+  "badge": "最受欢迎",
+  "thirdOption": "需要长期合作？",
+  "btnText": "联系我",
 
   "starterKit": {
-    "name": "Starter Kit",
-    "description": "Best option for DIY projects",
-    "price": "49",
+    "name": "一杯咖啡",
+    "description": "感谢支持，我会继续写下去",
+    "price": "5",
     "cents": ".00",
-    "billingFrequency": "USD / monthly",
-    "features": [
-      "Key hardware tools",
-      "Access to guides & tutorials",
-      "Standard support"
-    ],
-    "purchaseBtnTitle": "Get the Starter Kit",
+    "billingFrequency": "USD / 次",
+    "features": ["博客持续更新", "留言优先回复", "我的感谢"],
+    "purchaseBtnTitle": "请我喝咖啡",
     "purchaseLink": "#"
   },
 
   "professionalToolbox": {
-    "name": "Professional Toolbox",
-    "description": "Best for large scale uses",
-    "price": "89",
+    "name": "月度赞助",
+    "description": "长期支持这个小站",
+    "price": "10",
     "cents": ".00",
-    "billingFrequency": "USD / monthly",
+    "billingFrequency": "USD / 月",
     "features": [
-      "Premium tool selection",
-      "Priority support",
-      "Exclusive content & deals",
-      "Bulk order discounts"
+      "包含咖啡档全部权益",
+      "月度内容通讯",
+      "新文章优先预览"
     ],
-    "purchaseBtnTitle": "Get the Professional Toolbox",
+    "purchaseBtnTitle": "成为赞助者",
     "purchaseLink": "#"
   }
 }

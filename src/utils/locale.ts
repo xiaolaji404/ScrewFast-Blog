@@ -1,22 +1,30 @@
 /**
- * Marketing-site locale module.
+ * ── 语言模块：全站“语言”这个概念的唯一权威 ─────────────────────────
  *
- * Owns everything the marketing pages (`src/pages/` and `src/pages/fr/`)
- * need to know about locales: which ones exist, how to resolve the current
- * one from a request, how to localise a path, and how to find the same page
- * in another locale. Nothing else in the codebase should parse `/fr` out of
- * a pathname or hard-code a locale prefix.
+ * 任何地方想知道“有哪些语言 / 当前是什么语言 / 某个路径在某种语言下长什么样”，
+ * 都只应该从这里问，不要自己写字符串判断。
  *
- * Docs (Starlight) have their own locale handling; this module is not used
- * there.
+ * 【本站现状】
+ *   只发布中文（zh）。默认语言不带 URL 前缀，
+ *   所以首页就是 `/`，博客是 `/blog/`……
  *
- * Every function here is pure so it can be unit-tested without Astro.
+ * 【如果将来想加语言】
+ *   需要动的地方集中在本文件：
+ *     1. MARKETING_LOCALES 里加上新语言代号
+ *     2. LOCALE_INFO 里补上新语言的 5 个标标（标签、lang、ogLocale 等）
+ *   其余部分（copy 表、页面壳）按 docs/customization.md 的“新增语言”章节操作。
+ *
+ * 【与 Starlight 文档站的关系】
+ *   Starlight（/welcome-to-docs/）有自己独立的语言机制，不走本模块。
+ *
+ * 本文件所有函数都是纯函数（输入确定→输出确定，无副作用），改起来安全。
+ * ────────────────────────────────────────────────────────────────
  */
 
-export const MARKETING_LOCALES = ['en', 'fr'] as const;
+export const MARKETING_LOCALES = ['zh'] as const;
 export type MarketingLocale = (typeof MARKETING_LOCALES)[number];
 
-export const DEFAULT_LOCALE: MarketingLocale = 'en';
+export const DEFAULT_LOCALE: MarketingLocale = 'zh';
 
 /** Locales that carry a URL prefix (every locale except the default). */
 const PREFIXED_LOCALES: readonly MarketingLocale[] = MARKETING_LOCALES.filter(
@@ -39,19 +47,12 @@ export const LOCALE_INFO: Record<
     intl: string;
   }
 > = {
-  en: {
-    label: 'English',
-    lang: 'en',
-    ogLocale: 'en_US',
-    inLanguage: 'en-US',
-    intl: 'en-US',
-  },
-  fr: {
-    label: 'Français',
-    lang: 'fr',
-    ogLocale: 'fr_FR',
-    inLanguage: 'fr',
-    intl: 'fr-FR',
+  zh: {
+    label: '简体中文',
+    lang: 'zh-CN',
+    ogLocale: 'zh_CN',
+    inLanguage: 'zh-CN',
+    intl: 'zh-CN',
   },
 };
 
@@ -66,9 +67,8 @@ export function isMarketingLocale(value: unknown): value is MarketingLocale {
  * Split a pathname into the locale it is prefixed with and the rest of the
  * path. The default locale has no prefix.
  *
- *   '/fr/blog/post-1/' -> { locale: 'fr', path: '/blog/post-1/' }
- *   '/fr'              -> { locale: 'fr', path: '/' }
- *   '/blog/'           -> { locale: 'en', path: '/blog/' }
+ *   '/blog/post-1/' -> { locale: 'zh', path: '/blog/post-1/' }
+ *   '/blog/'        -> { locale: 'zh', path: '/blog/' }
  */
 export function splitLocale(pathname: string): {
   locale: MarketingLocale;
@@ -103,10 +103,9 @@ export function resolveLocale(
 /**
  * Build a site-relative path for a locale.
  *
- *   localePath('fr', '/products')  -> '/fr/products'
- *   localePath('en', '/products')  -> '/products'
- *   localePath('fr')               -> '/fr'
- *   localePath('fr', '#')          -> '#'   (fragments and absolute URLs pass through)
+ *   localePath('zh', '/products') -> '/products'  （默认语言无前缀）
+ *   localePath('zh')              -> '/'
+ *   localePath('zh', '#')         -> '#'   (fragments and absolute URLs pass through)
  */
 export function localePath(locale: MarketingLocale, path = '/'): string {
   if (path.startsWith('#') || /^[a-z]+:/i.test(path)) return path;

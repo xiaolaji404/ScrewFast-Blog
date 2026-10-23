@@ -1,10 +1,12 @@
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, isAbsolute, relative, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const DIST = resolve(new URL('../dist/', import.meta.url).pathname);
-// Marketing routes exist once per locale (src/pages/ vs src/pages/fr/).
-const LOCALE_PREFIXES = ['', '/fr'];
+// 用 fileURLToPath 解析路径，兼容含中文（非 ASCII）的目录名。
+const DIST = fileURLToPath(new URL('../dist/', import.meta.url));
+// Marketing routes（src/pages/）。当前站点只有中文一种语言，默认语言无前缀。
+const LOCALE_PREFIXES = [''];
 const MARKETING_ROUTES = [
   '/',
   '/products/',
@@ -20,22 +22,17 @@ const ROUTES = [
     MARKETING_ROUTES.map(route => `${prefix}${route}`)
   ),
   '/404',
-  '/fr/404/',
 ];
 
 // Cheap content assertions on top of the status check.
 const EXPECTATIONS = {
-  '/fr/': [
-    '<html lang="fr"',
-    '<meta property="og:locale" content="fr_FR"',
-    'hreflang="en" href="https://screwfast.uk"',
+  '/': [
+    '<html lang="zh-CN"',
+    '<meta property="og:locale" content="zh_CN"',
+    'href="https://xiaolaji.site"',
   ],
-  '/': ['<html lang="en"', 'hreflang="fr" href="https://screwfast.uk/fr"'],
-  '/fr/404/': ['<html lang="fr"'],
   '/contact/': ['data-demo-form', 'data-demo-status'],
-  '/fr/contact/': ['data-demo-form', 'data-demo-status'],
   '/blog/post-1/': ['"@type":"BlogPosting"'],
-  '/fr/blog/post-1/': ['"inLanguage":"fr"'],
 };
 
 const MIME = {

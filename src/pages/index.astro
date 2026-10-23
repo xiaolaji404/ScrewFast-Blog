@@ -1,5 +1,13 @@
 ---
+// ── 路由壳（Route Shell）：URL → 视图的唯一映射 ────────────────
+// 本文件只干一件事：把 URL `/` 交给首页视图渲染。
+//
+// 【为什么要这一层“壳”】
+//   - Astro 按文件路径生成 URL：本文件位于 src/pages/index.astro，即 `/`
+//   - 页面实现在 src/views/ 里，壳只负责“选哪个视图、传什么 locale”
+//   - 将来若新增语言，只需复制壳并改 locale，视图本体不用动
+// ────────────────────────────────────────────────────────
 import HomeView from '@views/HomeView.astro';
 ---
 
-<HomeView locale="en" />
+<HomeView locale="zh" />

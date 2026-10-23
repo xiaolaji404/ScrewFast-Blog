@@ -1,8 +1,16 @@
 ---
+// ── 动态路由壳：/blog/<文件名>/ 的文章详情 ─────────────────────
+// 这是一条“动态路由”：[id] 是占位符，构建时会为每篇文章各生成一个静态页面。
+//
+// 【getStaticPaths 是什么】
+//   静态站点没有服务端，页面必须在构建时“提前全部生成”。
+//   staticPathsFor('blog','zh') 会枚举出全部文章，为每篇产出一组
+//   “URL 参数 + 数据（entry）”。insights / products 的壳完全同构，只是集合名不同。
+// ────────────────────────────────────────────────────────
 import BlogPostView from '@views/BlogPostView.astro';
 import { staticPathsFor } from '@utils/content';
 
-export const getStaticPaths = () => staticPathsFor('blog', 'en');
+export const getStaticPaths = () => staticPathsFor('blog', 'zh');
 
 const { entry } = Astro.props;
 ---

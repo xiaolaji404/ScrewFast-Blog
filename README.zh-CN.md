@@ -40,11 +40,11 @@ import HeroSection from '@components/sections/landing/HeroSection.astro';
 
 ## 中文文档
 
+- [架构与使用指南](docs/architecture.md) —— 看懂网站怎么跑起来、框架给了你什么、你该怎么继续用它
 - [改造指南：把 ScrewFast 变成你自己的博客](docs/customization.md) —— 从站点身份、品牌视觉到部署上线的完整改造步骤
 - [开发与维护帮助文档](docs/development.md) —— 架构、约定、常见任务与故障排查
 - [AI 指南（中文）](AI_GUIDE.zh-CN.md) —— 给 AI 编程助手的项目结构与约定说明
 - [领域术语表（中文）](CONTEXT.zh-CN.md) —— 代码库核心概念的命名与含义
-- [行为准则（中文）](CODE_OF_CONDUCT.zh-CN.md) —— 社区行为规范
 
 ---
 
@@ -331,8 +331,6 @@ Prettier 配置了 `prettier-plugin-astro` 和 `prettier-plugin-tailwindcss`（�
 
 - **Bug 和想法：** 提交 [issue](https://github.com/mearashadowfax/ScrewFast/issues) 或发起 [discussion](https://github.com/mearashadowfax/ScrewFast/discussions/new/choose)。
 - **Pull request：** 欢迎。提交前请运行 `pnpm format:fix` 和 `pnpm build`。
-
-参见 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)（[中文版](CODE_OF_CONDUCT.zh-CN.md)）。
 
 ## 许可证
 

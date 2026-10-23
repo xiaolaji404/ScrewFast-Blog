@@ -44,8 +44,8 @@ export const GET: APIRoute = async () => {
   );
 
   const manifest = {
-    short_name: 'ScrewFast',
-    name: 'ScrewFast',
+    short_name: '星陨的博客',
+    name: '星陨的博客',
     icons,
     display: 'minimal-ui',
     id: '/',

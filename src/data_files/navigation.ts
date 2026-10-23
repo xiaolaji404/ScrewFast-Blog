@@ -47,10 +47,11 @@ export const footerSections: {
   },
 ];
 
+/** 页脚社交链接：替换为你自己的主页地址；未使用时保持 '#'。 */
 export const socialLinks = {
-  facebook: 'https://www.facebook.com/',
-  x: 'https://twitter.com/',
-  github: 'https://github.com/mearashadowfax/ScrewFast',
-  google: 'https://www.google.com/',
-  slack: 'https://slack.com/',
+  facebook: '#',
+  x: '#',
+  github: '#',
+  google: '#',
+  slack: '#',
 };

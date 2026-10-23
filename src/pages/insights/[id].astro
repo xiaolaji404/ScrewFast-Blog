@@ -1,8 +1,9 @@
 ---
+// 动态路由壳：/insights/<文件名>/ 的随想详情（与 blog/[id] 同构）
 import InsightView from '@views/InsightView.astro';
 import { staticPathsFor } from '@utils/content';
 
-export const getStaticPaths = () => staticPathsFor('insights', 'en');
+export const getStaticPaths = () => staticPathsFor('insights', 'zh');
 
 const { entry } = Astro.props;
 ---

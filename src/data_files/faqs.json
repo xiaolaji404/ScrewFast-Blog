@@ -1,29 +1,29 @@
 {
-  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "subTitle": "关于本站与写作的常见问题，在这里尽力作答。",
   "faqs": [
     {
-      "question": "What types of tools are included in the Starter Kit?",
-      "answer": "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks."
+      "question": "这个博客主要写什么？",
+      "answer": "编程、云原生、飞行、文学——想到什么写什么，偶尔也会有一些生活随想。"
     },
     {
-      "question": "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-      "answer": "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition."
+      "question": "多久更新一次？",
+      "answer": "不定期更新。有想写的东西就会写，不给自己设固定的更新节奏，但每一篇都会认真对待。"
     },
     {
-      "question": "What discounts are available for bulk orders through the Professional Toolbox plan?",
-      "answer": "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure."
+      "question": "文章可以转载吗？",
+      "answer": "欢迎注明出处的非商业转载。如需商业使用，请先与我联系。"
     },
     {
-      "question": "What kind of customer support can I expect?",
-      "answer": "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance."
+      "question": "博客是用什么搭建的？",
+      "answer": "基于 Astro 构建的静态站点，托管在 Vercel 上。速度快、维护成本低，很适合个人博客。"
     },
     {
-      "question": "How current are the online resources and tutorials?",
-      "answer": "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels."
+      "question": "发现文章有错误怎么办？",
+      "answer": "欢迎通过邮件告诉我，我会尽快核实并更正。勘误对我非常重要。"
     },
     {
-      "question": "Does ScrewFast offer services for large-scale construction projects?",
-      "answer": "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote."
+      "question": "可以投稿或合作吗？",
+      "answer": "欢迎来信聊聊。对于合适的内容或合作，我很乐意进一步沟通。"
     }
   ]
 }

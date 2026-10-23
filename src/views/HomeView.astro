@@ -11,14 +11,31 @@ import FAQ from '@components/sections/misc/FAQ.astro';
 import AnnouncementBanner from '@components/ui/banners/AnnouncementBanner.astro';
 import heroImage from '@images/hero-image.avif';
 import featureImage from '@images/features-image.avif';
-import construction from '@images/construction-image.avif';
+import aerialView from '@images/aerial-view.avif';
 import tools from '@images/automated-tools.avif';
 import dashboard from '@images/dashboard-image.avif';
 import { partnersData } from '@data/constants';
 import { getCopy } from '@/copy';
 import { localePath, type MarketingLocale } from '@utils/locale';
 
-/** The home page in one locale. Copy comes from the locale's copy table. */
+/**
+ * ── 首页视图：“用积木拼页面”的典型例子 ──────────────────────────────
+ *
+ * 【一个页面的三段式（全站所有页面都遵守）】
+ *   1. src/pages/index.astro     一行壳：负责 URL ↔ 视图的映射
+ *   2. src/views/HomeView.astro  本文件：选区块 + 取文案 + 传数据
+ *   3. src/components/sections/… 区块（积木）：自己负责渲染成什么样子
+ *
+ * 【本文件怎么工作】
+ *   - 页面文字不在本文件硬编码，而是从文案表 t.home 取（改文字 → 改 @/copy/zh.ts）
+ *   - JSON 数据（faqs/features/pricing）通过 t.data 拿到
+ *   - 图片 import 后作为 prop 传给区块
+ *   - 区块从上到下的书写顺序 = 页面从上到下的渲染顺序：
+ *     想调整版面？直接调换下面这些区块的顺序即可。
+ *
+ * 【想删掉某个区块？】
+ *   删掉它的 import 和对应的 <XxxSection /> 标签即可，比如不想要“价格”就删 PricingSection。
+ */
 interface Props {
   locale: MarketingLocale;
 }
@@ -45,14 +62,14 @@ const testimonials = copy.testimonials.quotes.map(quote => ({
   <AnnouncementBanner
     btnId="dismiss-button"
     btnTitle={copy.banner}
-    url="https://github.com/mearashadowfax/ScrewFast"
+    url={localePath(locale, '/blog')}
   />
 
   <HeroSection
     title={copy.hero.title}
     subTitle={copy.hero.subTitle}
     primaryBtn={copy.hero.primaryBtn}
-    primaryBtnURL={localePath(locale, '/products')}
+    primaryBtnURL={localePath(locale, '/blog')}
     secondaryBtn={copy.hero.secondaryBtn}
     secondaryBtnURL={localePath(locale, '/contact')}
     withReview={true}
@@ -96,7 +113,7 @@ const testimonials = copy.testimonials.quotes.map(quote => ({
       {
         ...copy.featuresNavs.tabs.features,
         svg: 'house',
-        src: construction,
+        src: aerialView,
       },
     ]}
   />
@@ -115,6 +132,6 @@ const testimonials = copy.testimonials.quotes.map(quote => ({
   <HeroSectionAlt
     title={copy.heroAlt.title}
     subTitle={copy.heroAlt.subTitle}
-    url="https://github.com/mearashadowfax/ScrewFast"
+    url={localePath(locale, '/contact')}
   />
 </MainLayout>
