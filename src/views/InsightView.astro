@@ -5,7 +5,12 @@ import type { CollectionEntry } from 'astro:content';
 import { localeOf } from '@utils/content';
 import { getCopy } from '@/copy';
 
-/** One insight page. The locale is the entry's own. */
+/**
+ * ── 随想（insights）详情页视图 ─────────────────────────────────────
+ *
+ * 与博客文章类似，但“页面类型”是 Article（拿不到作者/发布日期信息），
+ * 详情区块 InsightDetail 会额外渲染目录与阅读进度条。
+ */
 interface Props {
   post: CollectionEntry<'insights'>;
 }

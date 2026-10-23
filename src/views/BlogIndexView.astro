@@ -7,7 +7,18 @@ import { entriesFor } from '@utils/content';
 import { getCopy } from '@/copy';
 import type { MarketingLocale } from '@utils/locale';
 
-/** The blog index (posts + insights) in one locale. */
+/**
+ * ── 博客列表页视图 ────────────────────────────────────────────────
+ *
+ * 【数据来源】
+ *   entriesFor('blog', locale)     → 取出全部博客文章（按发布日期倒序）
+ *   entriesFor('insights', locale) → 取出全部随想
+ *   排序规则统一由 @utils/content 维护，本文件不用操心。
+ *
+ * 【排版逻辑】
+ *   最新一篇单独用大卡片（CardBlogRecent）展示，其余用普通卡片（CardBlog）网格排列。
+ *   没有文章时会展示“敬请期待”的占位文案（来自文案表）。
+ */
 interface Props {
   locale: MarketingLocale;
 }

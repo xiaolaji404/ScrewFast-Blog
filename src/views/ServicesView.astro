@@ -16,7 +16,15 @@ import underConstruction from '@images/under-construction.avif';
 import { getCopy } from '@/copy';
 import type { MarketingLocale } from '@utils/locale';
 
-/** The services page in one locale. */
+/**
+ * ── 服务页视图 ──────────────────────────────────────────────────
+ *
+ * 【特殊之处】本页的“文章式”内容（标题/正文/配图）不是一个个区块组件，
+ * 而是先在 frontmatter 里组装成 Article[] 数组，再交给 AlternatingSections 统一渲染
+ * （左右图文交替的版式）。如果你只需要静态展示，这是比逐个找区块更省事的写法。
+ *
+ * 【如果你不用服务功能】按 docs/customization.md 第 8 节可整体删掉。
+ */
 interface Props {
   locale: MarketingLocale;
 }

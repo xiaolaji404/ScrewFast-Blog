@@ -6,11 +6,29 @@ import { buildPageMetadata, type PageKind } from '@utils/metadata';
 import '@styles/global.css';
 
 /**
- * Marketing-page layout. A page tells it what the page *is* (title,
- * description, section, kind); the layout derives the whole `<head>` from
- * that via `buildPageMetadata()` and wraps the content in Navbar +
- * FooterSection. The locale is the one resolved from the URL by the
- * middleware (`Astro.locals.locale`), the single source for the whole tree.
+ * ── 全站唯一的页面布局：每个页面的“外壳” ────────────────────────────
+ *
+ * 【类比】
+ *   如果把一个页面看作一幅画：
+ *     画框（导航栏 + 页脚 + <head>）← 本文件统一提供，全站一致
+ *     画的内容                       ← 各视图写在 <MainLayout>…</MainLayout> 里面
+ *   所以任何页面都不用重复写导航栏、页脚和 SEO 标签。
+ *
+ * 【它做三件事】
+ *   1. 生成 <head>：把页面提供的 title/description/kind 交给 buildPageMetadata()，
+ *      推导出标题、描述、Open Graph、canonical、JSON-LD 等全部 SEO 元数据，
+ *      再由 Meta.astro 渲染。
+ *   2. 组织页面结构：Navbar（顶栏）+ <slot/>（页面内容）+ Footer（页脚）。
+ *   3. 加载全站脚本与样式：Tailwind 主样式、Lenis 平滑滚动、Preline 交互组件、
+ *      暗色模式切换。
+ *
+ * 【页面怎么用它】
+ *   页面只告诉它“我是什么”，而不是“怎么展示”：
+ *     title/description  → 标题与 SEO 描述
+ *     section            → OG 标题的中间段（如“博客”）
+ *     kind               → 页面类型（WebPage/BlogPosting/Article/Product），决定 JSON-LD
+ *     hideFooter         → 个别页面（如 404）可以不要页脚
+ *   语言不需传入：middleware 已把它挂在 Astro.locals.locale 上。
  */
 interface Props {
   /** Page title without the site suffix. Omit on the home page. */

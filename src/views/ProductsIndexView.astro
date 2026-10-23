@@ -8,7 +8,14 @@ import { entriesFor } from '@utils/content';
 import { getCopy } from '@/copy';
 import type { MarketingLocale } from '@utils/locale';
 
-/** The products index in one locale. */
+/**
+ * ── 产品列表页视图 ────────────────────────────────────────────────
+ *
+ * 【数据来源】entriesFor('products', locale)，按 frontmatter 里的 main.id 升序排列。
+ *
+ * 【排版逻辑】小卡 / 宽卡 交替排列，让每一行都填满 3 列网格（见下方 section 注释）。
+ * 【如果你不用产品功能】按 docs/customization.md 第 8 节可整体删掉。
+ */
 interface Props {
   locale: MarketingLocale;
 }

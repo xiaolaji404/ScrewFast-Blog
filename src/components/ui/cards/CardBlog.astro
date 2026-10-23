@@ -1,5 +1,15 @@
 ---
-// Import necessary components and utilities
+// ── 卡片组件示例：CardBlog ───────────────────────────────────
+// 这是“卡片吃条目”模式的代表：调用方只传一个内容条目，其它全由卡片自己处理。
+//
+// 【卡片负责的事】
+//   - 链接：pathFor(entry)          → 不手拼 URL，永远和内容系统对得上
+//   - 日期：formatDate(…, localeOf) → 按条目自己的语言格式化
+//   - 内容：封面图、作者头像、标题、摘要全部从 entry.data 取
+//
+// 【调用方（如 BlogIndexView）只需要】
+//   <CardBlog blogEntry={entry} />
+// ────────────────────────────────────────────────────────
 import AvatarBlog from '@components/ui/avatars/AvatarBlog.astro';
 import { Image } from 'astro:assets';
 import { formatDate } from '@utils/utils';

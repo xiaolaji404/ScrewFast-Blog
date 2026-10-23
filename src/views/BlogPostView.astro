@@ -11,7 +11,23 @@ import { capitalize, formatDate } from '@utils/utils';
 import { entriesFor, localeOf } from '@utils/content';
 import { getCopy } from '@/copy';
 
-/** One blog post. The locale is the entry's own. */
+/**
+ * ── 博客文章详情页视图 ────────────────────────────────────────────
+ *
+ * 【数据怎么流进来】
+ *   src/pages/blog/[id].astro 在构建时枚举全部文章（staticPathsFor），
+ *   每篇文章渲染一次本视图，post 就是一个内容条目（含 frontmatter 数据）。
+ *
+ * 【本文件做两件事】
+ *   1. 把文章的“存在感”告诉 MainLayout：
+ *        title/description  → 标题与描述
+ *        section            → OG 标题中段（“博客”）
+ *        kind: BlogPosting  → 告诉搜索引擎这是一篇博客文章（生成对应的 JSON-LD）
+ *   2. 用 <Content /> 渲染 Markdown 正文，并配上作者头像、日期、
+ *      分享按钮、书签、反馈组件与“相关文章”列表。
+ *
+ * 注意：日期格式化为 localeOf(post) 对应的语言（formatDate）。
+ */
 interface Props {
   post: CollectionEntry<'blog'>;
 }

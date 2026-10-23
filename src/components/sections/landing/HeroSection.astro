@@ -1,11 +1,24 @@
 ---
-// Import the necessary dependencies
+// ── 区块组件示例：HeroSection（首页首屏）──────────────────────
+// 这是“区块（section）”的标准写法：只负责“怎么展示”，不关心“展示什么”。
+//
+// 【与页面的分工】
+//   HomeView（页面）负责“展示什么”：从文案表取文字、传图片、定按钮跳转目标。
+//   HeroSection（本组件）负责“怎么展示”：左右两栏、字号、按钮样式。
+//   → 改文字去 @/copy/zh.ts；改版式才需要动本文件。
+//
+// 【props 速览】
+//   title / subTitle      大标题（支持内联 HTML，如彩色字）与副标题
+//   primaryBtn / …URL     主按钮文案与链接
+//   secondaryBtn / …URL   次按钮文案与链接
+//   withReview + 其余     是否展示“头像 + 星级 + 评价数”那一行
+//   src / alt             右侧配图与替代文本
+// ────────────────────────────────────────────────────────
 import { Image } from 'astro:assets';
 import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
 import SecondaryCTA from '@components/ui/buttons/SecondaryCTA.astro';
 import ReviewComponent from '@components/ui/blocks/ReviewComponent.astro';
 
-// Define props from Astro
 const {
   title,
   subTitle,

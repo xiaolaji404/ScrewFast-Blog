@@ -7,13 +7,25 @@ import {
 } from '@utils/locale';
 
 /**
- * Content module for the localised collections (`blog`, `insights`,
- * `products`).
+ * ── 内容模块：把“文章文件”翻译成“网站页面”的唯一权威 ───────────────
  *
- * Entries live under `src/content/<collection>/<locale>/<slug>.md`, so an
- * entry's id is `<locale>/<slug>`. This module is the only place that knows
- * that rule and the route each collection is served from; cards and pages
- * take an entry and ask here for its locale, slug, path and siblings.
+ * 你可能已经注意到：写一篇新文章，并不需要手动创建任何页面。
+ * 秘密就在本文件：任意一个内容条目（Markdown 文件）都自带一个 id，
+ * 形如 `<语言>/<文件名>`（例：`zh/my-first-post`）。本文件负责把 id 翻译成：
+ *
+ *   - 这篇属于哪个语言      → localeOf(entry)
+ *   - 文件名（URL 片段）   → slugOf(entry)
+ *   - 它应该出现在哪个 URL  → pathFor(entry)
+ *   - 同集合的条目列表       → entriesFor(collection, locale)
+ *   - 生成静态路由参数       → staticPathsFor(collection, locale)
+ *
+ * 【你需要注意的一件事】
+ *   保存文章的目录结构是有含义的：src/content/<集合>/<语言>/<文件名>.md
+ *   目录名必须正好是 `zh`（与 MARKETING_LOCALES 一致），文件名就是 URL 片段。
+ *
+ * 卡片组件（如 CardBlog）和页面的 [id].astro 路由都只接收“条目”，
+ * 然后向本文件“询问”链接等信息，所以**永远不要自己拼 `/blog/${id}` 这种 URL**。
+ * ────────────────────────────────────────────────────────────────
  */
 
 export type LocalisedCollection = 'blog' | 'insights' | 'products';

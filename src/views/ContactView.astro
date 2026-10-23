@@ -4,7 +4,12 @@ import ContactSection from '@components/sections/misc/ContactSection.astro';
 import { getCopy } from '@/copy';
 import type { MarketingLocale } from '@utils/locale';
 
-/** The contact page in one locale. */
+/**
+ * ── 联系页视图 ──────────────────────────────────────────────────
+ *
+ * 页面主体只有一块：ContactSection（联系方式与表单）。
+ * 表单是演示用的 DemoForm（不连后端），接入真实服务的方法见 docs/development.md。
+ */
 interface Props {
   locale: MarketingLocale;
 }

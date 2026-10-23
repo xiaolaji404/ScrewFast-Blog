@@ -5,9 +5,14 @@ import { getCopy } from '@/copy';
 import { localePath, type MarketingLocale } from '@utils/locale';
 
 /**
- * The 404 page in one locale. Static output can only serve one `404.html`
- * (the English one); `/fr/404/` is built as well so the host can rewrite
- * missing `/fr/…` paths to it (see `vercel.json` and the README).
+ * ── 404 页视图 ──────────────────────────────────────────────────
+ *
+ * 【静态站点的 404 机制】
+ *   静态构建全站只能产出一个 404.html（由 src/pages/404.astro 生成），
+ *   托管平台（Vercel）在找不到页面时会自动展示它。
+ *   页面本身用了 hideFooter，只保留导航栏与一句“回到首页”的引导。
+ *
+ * 【语言】目前站点只有中文，404 页面 lang="zh-CN"。
  */
 interface Props {
   locale: MarketingLocale;

@@ -5,7 +5,12 @@ import type { CollectionEntry } from 'astro:content';
 import { localeOf } from '@utils/content';
 import { getCopy } from '@/copy';
 
-/** One product page. The locale is the entry's own. */
+/**
+ * ── 产品详情页视图 ──────────────────────────────────────────────
+ *
+ * 页面类型声明为 Product（生成产品相关的 JSON-LD）。
+ * 主体区块 ProductDetail 包含描述/规格/图纸选项卡、规格表与蓝图预览。
+ */
 interface Props {
   product: CollectionEntry<'products'>;
 }

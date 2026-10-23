@@ -9,15 +9,26 @@ import {
 } from '@utils/locale';
 
 /**
- * Page-metadata module.
+ * ── 元数据模块：把“页面是什么”翻译成 <head> 里的一切 ─────────────────
  *
- * Turns the five things a page knows about itself (locale, path, title,
- * description, kind) into everything the `<head>` needs: title, description,
- * Open Graph fields, canonical, hreflang alternates and schema.org JSON-LD
- * with the site boilerplate filled in. Pages never hand-write schema.org
- * objects or the site URL.
+ * 【它解决什么痛点】
+ *   一个页面通常只需要知道自己“是什么”：标题、描述、页面类型。
+ *   其余一整套 SEO 东西（Open Graph、canonical、JSON-LD 结构化数据等）
+ *   全由本文件根据这五个输入推导出来，页面完全不用操心：
  *
- * Pure: takes plain values, returns plain values, so it can be snapshot-tested.
+ *     输入（页面知道的）        输出（<head> 需要的）
+ *     ────────────────────      ─────────────────────────────
+ *     locale / pathname    →    canonical、hreflang、绝对 URL
+ *     title / description  →    <title>、meta description、OG 字段
+ *     kind                 →    schema.org JSON-LD（搜索引擎认识的那套）
+ *
+ * 【谁在用它】
+ *   MainLayout.astro 是唯一的调用方；它把渲染结果交给 Meta.astro 输出到 <head>。
+ *   因此页面永远不用手写 schema.org 对象，也不用手拼站点的域名。
+ *   —— 改域名只需要改 @data/constants 里的 SITE.url。
+ *
+ * 纯函数：接收普通值、返回普通值，方便测试。
+ * ────────────────────────────────────────────────────────────────
  */
 
 /** What kind of thing the page is, for JSON-LD. */

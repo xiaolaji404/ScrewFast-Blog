@@ -2,9 +2,13 @@
 import { Icons, type IconDefinition, type IconName } from './icons';
 
 /**
- * Renders one glyph from `icons.ts`. `name` is typed, so a typo fails
- * `astro check`; `class` and `title` come from the call site, where the
- * surrounding layout is known.
+ * ── 图标渲染器（原子组件）─────────────────────────────────────────
+ * 用法：<Icon name="tools" class="h-6 w-6 text-orange-400" />
+ *   - name：图标名，从 icons.ts 里取（有类型检查，拼错会在 pnpm build 时报错）
+ *   - class：尺寸/颜色/状态全由调用方传入（颜色用 text-* 类，进图标内的 fill）
+ *   - title：无障碍名称；纯装饰性图标不用传
+ * 图标本身只存几何数据（见 icons.ts）；想加新图标，去 icons.ts 添加条目即可。
+ * ────────────────────────────────────────────────────────────────
  */
 interface Props {
   name: IconName;
